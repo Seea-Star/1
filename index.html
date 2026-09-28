@@ -306,15 +306,31 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    .pure-card-img {
-      max-width: 100%;
+    /* Stile per il nuovo pulsante About Me color crema */
+    .btn-cream {
       width: 100%;
-      height: auto;
+      background: #F3EEDA;
+      color: #111111;
+      border: 2px solid #111;
+      border-radius: 16px;
+      padding: 12px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px #111;
+      text-align: center;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      text-decoration: none;
       display: block;
-      filter: drop-shadow(4px 4px 0px #111);
-      transition: transform 0.15s ease;
     }
-    .pure-card-img:hover { transform: translateY(-2px); }
+    .btn-cream:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #111;
+    }
+    .btn-cream:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #111;
+    }
 
     /* --- RESPONSIVE PER SMARTPHONE --- */
     @media screen and (max-width: 768px) {
@@ -408,6 +424,11 @@
       </aside>
 
       <main class="col-center">
+        <!-- Blocco Scratch spostato sopra al Welcome -->
+        <div style="width: 100%; aspect-ratio: 485 / 402; border-radius: 16px; border: 2px solid #111111; box-shadow: 3px 3px 0px #111111; background: #111; overflow: hidden;">
+          <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
+        </div>
+
         <div style="background: #111111; color: #ffffff; border: 2px solid #111111; border-radius: 22px; overflow: hidden; width: 100%; box-shadow: 4px 4px 0px #F3EEDA;">
           <div class="box-body" style="font-size: 0.82rem; line-height: 1.5; padding: 20px;">
             <p style="font-weight: 800; font-size: 1rem; margin-bottom: 8px; color: #ffffff;">Welcome to my site!<br>Hi, I’m Seea.</p>
@@ -418,9 +439,10 @@
           </div>
         </div>
 
+        <!-- Sostituita l'immagine con il nuovo pulsante About Me color crema -->
         <div style="width: 100%;">
-          <a href="https://cosmic-seea.neocities.org/AboutMe" style="display: block; text-decoration: none;">
-            <img src="./about-me-card.png" alt="about_me.id" class="pure-card-img">
+          <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream">
+            ✨ ABOUT ME -&gt;
           </a>
         </div>
 
@@ -428,10 +450,6 @@
           <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="nav-box-btn" style="display: block; text-decoration: none;">
             𓍢ִ໋🀦 MY STAMPS -&gt;
           </a>
-        </div>
-
-        <div style="width: 100%; aspect-ratio: 485 / 402; border-radius: 16px; border: 2px solid #111111; box-shadow: 3px 3px 0px #111111; background: #111; overflow: hidden;">
-          <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
       </main>
 
@@ -599,4 +617,4 @@
   </script>
 
 </body>
-          </html>
+</html>
