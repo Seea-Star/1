@@ -316,6 +316,27 @@
     }
     .pure-card-img:hover { transform: translateY(-2px); }
 
+    /* --- TRUCCO PER NASCONDERE LA BARRA SUPERIORE DI SCRATCH --- */
+    .scratch-trim-container {
+      width: 100%;
+      aspect-ratio: 485 / 330; /* Altezza ridotta per mostrare solo il gioco */
+      border-radius: 16px;
+      border: 2px solid #111111;
+      box-shadow: 3px 3px 0px #111111;
+      background: #111;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .scratch-trim-container iframe {
+      position: absolute;
+      top: -46px; /* Spinge la barra superiore fuori dalla vista */
+      left: 0;
+      width: 100%;
+      height: calc(100% + 46px);
+      border: none;
+    }
+
     /* --- RESPONSIVE PER SMARTPHONE --- */
     @media screen and (max-width: 768px) {
       body {
@@ -430,9 +451,9 @@
           </a>
         </div>
 
-        <!-- Blocco Scratch con larghezza al 100% e altezza perfettamente adattata senza alcuno spazio vuoto -->
-        <div style="width: 100%; aspect-ratio: 485 / 380; border-radius: 16px; border: 2px solid #111111; box-shadow: 3px 3px 0px #111111; background: #111; overflow: hidden;">
-          <iframe src="https://scratch.mit.edu/projects/1379124801/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
+        <!-- Scratch senza la barra superiore -->
+        <div class="scratch-trim-container">
+          <iframe src="https://scratch.mit.edu/projects/1379124801/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
       </main>
 
