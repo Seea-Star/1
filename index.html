@@ -316,24 +316,25 @@
     }
     .pure-card-img:hover { transform: translateY(-2px); }
 
-    /* --- SCRATCH SENZA BORDO NERO E SENZA OMBRA --- */
+    /* --- SCRATCH: RIMOZIONE BORDO NERO NATIVO --- */
     .scratch-trim-container {
       width: 100%;
       aspect-ratio: 485 / 330;
       border-radius: 16px;
-      border: none;       /* Bordo rimosso completamente */
-      box-shadow: none;   /* Ombra rimossa completamente */
+      border: none;
+      box-shadow: none;
       background: #111;
-      overflow: hidden;
+      overflow: hidden; /* Taglia via tutto ciò che esce dai bordi */
       position: relative;
     }
 
     .scratch-trim-container iframe {
       position: absolute;
-      top: -46px; 
-      left: 0;
-      width: 100%;
-      height: calc(100% + 46px);
+      /* Spostiamo e ingrandiamo l'iframe per tagliare il bordo nero nativo di Scratch */
+      top: -20px;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% + 40px);
       border: none;
     }
 
@@ -451,7 +452,7 @@
           </a>
         </div>
 
-        <!-- Scratch senza bordi né ombre, completamente adattato -->
+        <!-- Scratch pulito dal bordo nativo -->
         <div class="scratch-trim-container">
           <iframe src="https://scratch.mit.edu/projects/1379124801/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
         </div>
@@ -621,4 +622,4 @@
   </script>
 
 </body>
-</html>
+          </html>
