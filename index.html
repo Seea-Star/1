@@ -316,28 +316,6 @@
     }
     .pure-card-img:hover { transform: translateY(-2px); }
 
-    /* --- SCRATCH: RIMOZIONE BORDO NERO NATIVO --- */
-    .scratch-trim-container {
-      width: 100%;
-      aspect-ratio: 485 / 330;
-      border-radius: 16px;
-      border: none;
-      box-shadow: none;
-      background: #111;
-      overflow: hidden; /* Taglia via tutto ciò che esce dai bordi */
-      position: relative;
-    }
-
-    .scratch-trim-container iframe {
-      position: absolute;
-      /* Spostiamo e ingrandiamo l'iframe per tagliare il bordo nero nativo di Scratch */
-      top: -20px;
-      left: -20px;
-      width: calc(100% + 40px);
-      height: calc(100% + 40px);
-      border: none;
-    }
-
     /* --- RESPONSIVE PER SMARTPHONE --- */
     @media screen and (max-width: 768px) {
       body {
@@ -452,9 +430,9 @@
           </a>
         </div>
 
-        <!-- Scratch pulito dal bordo nativo -->
-        <div class="scratch-trim-container">
-          <iframe src="https://scratch.mit.edu/projects/1379124801/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+        <!-- Blocco Scratch con larghezza al 100% e altezza perfettamente adattata senza alcuno spazio vuoto -->
+        <div style="width: 100%; aspect-ratio: 485 / 380; border-radius: 16px; border: 2px solid #111111; box-shadow: 3px 3px 0px #111111; background: #111; overflow: hidden;">
+          <iframe src="https://scratch.mit.edu/projects/1379124801/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
       </main>
 
