@@ -306,7 +306,33 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    /* Stile per il pulsante About Me con il font speciale e senza emoji */
+    /* Pulsante nero in stile weerings/guestbook per il Cosmic Club */
+    .btn-cosmic-club-black {
+      width: 100%;
+      background: #111111;
+      color: #ffffff;
+      border: 2px solid #111111;
+      border-radius: 16px;
+      padding: 12px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px #111111;
+      text-align: center;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .btn-cosmic-club-black:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #111111;
+    }
+    .btn-cosmic-club-black:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #111111;
+    }
+
+    /* Stile per il pulsante About Me */
     .btn-cream {
       width: 100%;
       background: #F3EEDA;
@@ -330,45 +356,6 @@
     .btn-cream:active {
       transform: translate(2px, 2px);
       box-shadow: 1px 1px 0px #111;
-    }
-
-    /* Stili aggiornati per il widget del Cosmic Club */
-    .cosmic-club-widget {
-      width: 100%;
-      max-width: 200px;
-      height: 200px;
-      background-color: #000000;
-      border: 2px solid #111;
-      border-radius: 16px;
-      box-shadow: 3px 3px 0px #111;
-      background-image: 
-        radial-gradient(#FFFFFF 1.3px, transparent 1.3px),
-        radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px),
-        radial-gradient(#FFFFFF 0.7px, transparent 0.7px);
-      background-size: 110px 110px, 160px 160px, 75px 75px;
-      background-position: 0 0, 50px 80px, 25px 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-sizing: border-box;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-      margin: 0 auto;
-    }
-    .cosmic-club-widget:hover {
-      transform: translate(-1px, -1px);
-      box-shadow: 4px 4px 0px #111;
-    }
-    .cosmic-club-widget:active {
-      transform: translate(2px, 2px) !important;
-      box-shadow: 1px 1px 0px #111 !important;
-    }
-    .cosmic-club-widget img {
-      width: 140px;
-      height: 140px;
-      object-fit: contain;
-      display: block;
-      pointer-events: none;
     }
 
     /* --- RESPONSIVE PER SMARTPHONE --- */
@@ -468,14 +455,11 @@
           <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
 
-        <!-- Nuovo Widget Cosmic Club -->
-        <div class="box">
-          <div class="box-header-accent"><span>COSMIC CLUB</span></div>
-          <div class="box-body" style="background: #fff; display: flex; justify-content: center; align-items: center; padding: 20px;">
-            <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="cosmic-club-widget">
-              <img src="https://cosmic-seea.neocities.org/Senza%20titolo%2013_20260914185659.png" alt="Cosmic Club Member">
-            </a>
-          </div>
+        <!-- Pulsante Cosmic Club nero -->
+        <div style="width: 100%;">
+          <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="btn-cosmic-club-black">
+            COSMIC CLUB -&gt;
+          </a>
         </div>
 
         <!-- Pulsante About Me -->
