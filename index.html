@@ -364,6 +364,7 @@
       transform: scale(0.98);
     }
 
+    /* STILI PER I PULSANTI TIPO "ABOUT ME" ( Crema, Nero, Bianco ) */
     .btn-cream-large {
       width: 100%;
       flex: 1;
@@ -392,24 +393,64 @@
       box-shadow: 1px 1px 0px #111;
     }
 
-    .btn-empty-test {
+    .btn-dark-large {
       width: 100%;
       flex: 1;
-      background: #ffffff;
-      color: #777777;
-      border: 2px dashed #999999;
+      background: #111111;
+      color: #ffffff;
+      border: 2px solid #111;
       border-radius: 13px;
-      padding: 14px 12px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      cursor: default;
+      padding: 16px 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px #F3EEDA;
       text-align: center;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      text-decoration: none;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    .btn-dark-large:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #F3EEDA;
+    }
+    .btn-dark-large:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #F3EEDA;
+    }
 
-    /* STILI PER I PULSANTI SOCIAL CIRCOLARI (Identici alla pagina About Me) */
+    .btn-white-large {
+      width: 100%;
+      flex: 1;
+      background: #ffffff;
+      color: #111111;
+      border: 2px solid #111;
+      border-radius: 13px;
+      padding: 16px 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px #111;
+      text-align: center;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-white-large:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #111;
+      background: #fafafa;
+    }
+    .btn-white-large:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #111;
+    }
+
+    /* STILI PER I PULSANTI SOCIAL CIRCOLARI */
     .social-buttons-container {
       display: flex;
       flex-wrap: wrap;
@@ -547,21 +588,18 @@
             <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream-large">
               𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
             </a>
-            <div class="btn-empty-test">
-              [Pulsante Vuoto]
-            </div>
+            <!-- Spazio vuoto futuro 1 (Stile Nero) -->
+            <a href="#" class="btn-dark-large"></a>
           </div>
         </div>
 
         <!-- SECONDA RIGA DELLA DIVISIONE -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
-            <div class="btn-empty-test">
-              [Pulsante Vuoto]
-            </div>
-            <div class="btn-empty-test">
-              [Pulsante Vuoto]
-            </div>
+            <!-- Spazio vuoto futuro 2 (Stile Bianco) -->
+            <a href="#" class="btn-white-large"></a>
+            <!-- Spazio vuoto futuro 3 (Stile Crema) -->
+            <a href="#" class="btn-cream-large"></a>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;">
             <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="stamps-clean-widget" id="stamps-link">
@@ -570,7 +608,7 @@
           </div>
         </div>
 
-        <!-- BARRA SOCIAL DEFINITIVA (Sostituisce il vecchio segnaposto) -->
+        <!-- BARRA SOCIAL DEFINITIVA -->
         <div class="social-buttons-container">
           <!-- Email -->
           <a href="mailto:seea-star@proton.me" class="social-btn" title="Email">
@@ -801,4 +839,4 @@
   </script>
 
 </body>
-          </html>
+</html>
