@@ -306,7 +306,7 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    /* WIDGET COSMIC CLUB (Adattabile e Quadrato) */
+    /* WIDGET COSMIC CLUB (Il tuo codice esatto e adattabile) */
     .cosmic-club-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -339,79 +339,75 @@
       pointer-events: none;
     }
 
-    /* WIDGET STAMPS ROTANTE (Stesso stile del Cosmic Club) */
-    .stamps-widget {
+    /* WIDGET MY STAMPS PULITO (Solo immagine rotante senza bordi) */
+    .stamps-clean-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background-color: #000000;
-      border: 2px solid #E1DAB9;
-      border-radius: 13px;
-      box-shadow: 4px 4px 0px #E1DAB9;
-      background-image: 
-        radial-gradient(#FFFFFF 1.3px, transparent 1.3px),
-        radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px),
-        radial-gradient(#FFFFFF 0.7px, transparent 0.7px);
-      background-size: 110px 110px, 160px 160px, 75px 75px;
-      background-position: 0 0, 50px 80px, 25px 35px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      box-sizing: border-box;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
       cursor: pointer;
     }
-    .stamps-widget:active {
-      transform: translate(4px, 4px) !important;
-      box-shadow: 1px 1px 0px #E1DAB9 !important;
-    }
-    .stamps-widget img {
-      width: 75%;
-      height: 75%;
+    .stamps-clean-widget img {
+      width: 85%;
+      height: 85%;
       object-fit: contain;
       display: block;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.15));
+    }
+    .stamps-clean-widget:hover img {
+      transform: scale(1.05);
+    }
+    .stamps-clean-widget:active img {
+      transform: scale(0.98);
     }
 
-    /* Stile per il pulsante About Me e pulsanti crema */
-    .btn-cream {
+    /* Pulsanti centrali ingranditi e ottimizzati */
+    .btn-cream-large {
       width: 100%;
+      flex: 1;
       background: #F3EEDA;
       color: #111111;
       border: 2px solid #111;
       border-radius: 13px;
-      padding: 12px;
+      padding: 16px 12px;
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       cursor: pointer;
       box-shadow: 3px 3px 0px #111;
       text-align: center;
       transition: transform 0.1s ease, box-shadow 0.1s ease;
       text-decoration: none;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .btn-cream:hover {
+    .btn-cream-large:hover {
       transform: translate(-1px, -1px);
       box-shadow: 4px 4px 0px #111;
     }
-    .btn-cream:active {
+    .btn-cream-large:active {
       transform: translate(2px, 2px);
       box-shadow: 1px 1px 0px #111;
     }
 
     .btn-empty-test {
       width: 100%;
+      flex: 1;
       background: #ffffff;
       color: #777777;
       border: 2px dashed #999999;
       border-radius: 13px;
-      padding: 12px;
+      padding: 14px 12px;
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       cursor: default;
       text-align: center;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .social-placeholder-row {
@@ -517,7 +513,7 @@
           <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
 
-        <!-- PRIMA RIGA DELLA DIVISIONE (Cosmic Club | About Me + Pulsante vuoto) -->
+        <!-- PRIMA RIGA DELLA DIVISIONE (Cosmic Club | About Me ingrandito + Pulsante vuoto) -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div>
             <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="cosmic-club-widget">
@@ -525,7 +521,7 @@
             </a>
           </div>
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
-            <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream">
+            <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream-large">
               𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
             </a>
             <div class="btn-empty-test">
@@ -534,7 +530,7 @@
           </div>
         </div>
 
-        <!-- SECONDA RIGA DELLA DIVISIONE (Pulsanti vuoti | My Stamps Rotante) -->
+        <!-- SECONDA RIGA DELLA DIVISIONE (Pulsanti vuoti | My Stamps Pulito e Rotante) -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
             <div class="btn-empty-test">
@@ -544,8 +540,8 @@
               [Pulsante Vuoto]
             </div>
           </div>
-          <div>
-            <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="stamps-widget" id="stamps-link">
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="stamps-clean-widget" id="stamps-link">
               <img id="rotating-stamp" src="stamp-1.png" alt="My Stamps">
             </a>
           </div>
@@ -602,7 +598,7 @@
   </div>
 
   <script>
-    /* --- SCRIPT ROTAZIONE TIMBRI --- */
+    /* --- SCRIPT ROTAZIONE TIMBRI PULITI --- */
     const stampsList = [
       "stamp-1.png", "stamp-2.png", "stamp-21.png", "stamp-22.png", 
       "stamp-23.png", "stamp-24.png", "stamp-25.png", "stamp-26.png", 
@@ -615,7 +611,7 @@
 
     function rotateStamp() {
       currentStampIndex = (currentStampIndex + 1) % stampsList.length;
-      stampImgElement.style.opacity = 0; // Effetto dissolvenza dolce
+      stampImgElement.style.opacity = 0; // Dissolvenza dolce
       setTimeout(() => {
         stampImgElement.src = stampsList[currentStampIndex];
         stampImgElement.style.opacity = 1;
