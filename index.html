@@ -306,11 +306,12 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    /* Nuovo stile personalizzato per il pulsante Cosmic Club */
+    /* Stile personalizzato per i pulsanti-quadrato (Cosmic Club e My Stamps) */
     .btn-cosmic-club-custom {
       width: 100%;
+      height: 100%;
+      min-height: 90px;
       background-color: #111111;
-      /* Sfondo con le linee a quadratini color crema esattamente come il box del club */
       background-image: 
         linear-gradient(rgba(243, 238, 218, 0.15) 1px, transparent 1px),
         linear-gradient(90deg, rgba(243, 238, 218, 0.15) 1px, transparent 1px);
@@ -320,14 +321,15 @@
       border-radius: 16px;
       padding: 12px;
       font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
-      /* Ombra color crema richiesta */
       box-shadow: 3px 3px 0px #F3EEDA;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: transform 0.1s ease, box-shadow 0.1s ease;
       text-decoration: none;
-      display: block;
     }
     .btn-cosmic-club-custom:hover {
       transform: translate(-1px, -1px);
@@ -338,7 +340,7 @@
       box-shadow: 1px 1px 0px #F3EEDA;
     }
 
-    /* Stile per il pulsante About Me */
+    /* Stile per il pulsante About Me e pulsanti vuoti */
     .btn-cream {
       width: 100%;
       background: #F3EEDA;
@@ -347,7 +349,7 @@
       border-radius: 16px;
       padding: 12px;
       font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
       box-shadow: 3px 3px 0px #111;
       text-align: center;
@@ -362,6 +364,45 @@
     .btn-cream:active {
       transform: translate(2px, 2px);
       box-shadow: 1px 1px 0px #111;
+    }
+
+    /* Stile per i pulsanti vuoti di prova */
+    .btn-empty-test {
+      width: 100%;
+      background: #ffffff;
+      color: #777777;
+      border: 2px dashed #999999;
+      border-radius: 16px;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      cursor: default;
+      text-align: center;
+      display: block;
+    }
+
+    /* Stile per la riga dei social in basso (segnaposto con cerchietti) */
+    .social-placeholder-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 10px;
+      background: #fcfcfc;
+      border: 2px dashed #ccc;
+      border-radius: 16px;
+      margin-top: 5px;
+    }
+    .social-placeholder-circle {
+      width: 32px;
+      height: 32px;
+      background: #eee;
+      border: 2px solid #bbb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #888;
     }
 
     /* --- RESPONSIVE PER SMARTPHONE --- */
@@ -456,29 +497,55 @@
       </aside>
 
       <main class="col-center">
-        <!-- Blocco Scratch posizionato in alto -->
+        <!-- Widget Scratch in alto -->
         <div style="width: 100%; aspect-ratio: 485 / 402; border-radius: 16px; border: 2px solid #111111; box-shadow: 3px 3px 0px #111111; background: #111; overflow: hidden;">
           <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
 
-        <!-- Pulsante Cosmic Club personalizzato con griglia crema e ombra crema -->
-        <div style="width: 100%;">
-          <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="btn-cosmic-club-custom">
-            COSMIC CLUB -&gt;
-          </a>
+        <!-- PRIMA RIGA DELLA DIVISIONE (Sinistra: Cosmic Club | Destra: 2 Pulsanti) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;">
+          <!-- Colonna Sinistra: Widget Cosmic Club -->
+          <div>
+            <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="btn-cosmic-club-custom">
+              COSMIC CLUB -&gt;
+            </a>
+          </div>
+          <!-- Colonna Destra: 2 Pulsanti (About Me + Pulsante vuoto) -->
+          <div style="display: flex; flex-direction: column; gap: 12px; justify-content: space-between;">
+            <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream">
+              𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
+            </a>
+            <div class="btn-empty-test">
+              [Pulsante Vuoto]
+            </div>
+          </div>
         </div>
 
-        <!-- Pulsante About Me -->
-        <div style="width: 100%;">
-          <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream">
-            𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
-          </a>
+        <!-- SECONDA RIGA DELLA DIVISIONE (Sinistra: 2 Pulsanti | Destra: My Stamps) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;">
+          <!-- Colonna Sinistra: 2 Pulsanti vuoti di prova -->
+          <div style="display: flex; flex-direction: column; gap: 12px; justify-content: space-between;">
+            <div class="btn-empty-test">
+              [Pulsante Vuoto]
+            </div>
+            <div class="btn-empty-test">
+              [Pulsante Vuoto]
+            </div>
+          </div>
+          <!-- Colonna Destra: Widget My Stamps -->
+          <div>
+            <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="btn-cosmic-club-custom" style="text-decoration: none;">
+              𓍢ִ໋🀦 MY STAMPS -&gt;
+            </a>
+          </div>
         </div>
 
-        <div style="width: 100%;">
-          <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="nav-box-btn" style="display: block; text-decoration: none;">
-            𓍢ִ໋🀦 MY STAMPS -&gt;
-          </a>
+        <!-- SPAZIO IN BASSO PER I BOTTONI DEI SOCIAL (Pronto per quando mi darai il codice) -->
+        <div class="social-placeholder-row">
+          <div class="social-placeholder-circle">1</div>
+          <div class="social-placeholder-circle">2</div>
+          <div class="social-placeholder-circle">3</div>
+          <div class="social-placeholder-circle">4</div>
         </div>
       </main>
 
@@ -646,4 +713,4 @@
   </script>
 
 </body>
-</html>
+          </html>
