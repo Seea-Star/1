@@ -306,47 +306,81 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    /* Stile personalizzato per i pulsanti-quadrato (Cosmic Club e My Stamps) */
-    .btn-cosmic-club-custom {
+    /* WIDGET COSMIC CLUB (Adattabile e Quadrato) */
+    .cosmic-club-widget {
       width: 100%;
-      height: 100%;
-      min-height: 90px;
-      background-color: #111111;
+      aspect-ratio: 1 / 1;
+      background-color: #000000;
+      border: 2px solid #E1DAB9;
+      border-radius: 13px;
+      box-shadow: 4px 4px 0px #E1DAB9;
       background-image: 
-        linear-gradient(rgba(243, 238, 218, 0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(243, 238, 218, 0.15) 1px, transparent 1px);
-      background-size: 20px 20px;
-      color: #ffffff;
-      border: 2px solid #F3EEDA;
-      border-radius: 16px;
-      padding: 12px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      cursor: pointer;
-      box-shadow: 3px 3px 0px #F3EEDA;
-      text-align: center;
+        radial-gradient(#FFFFFF 1.3px, transparent 1.3px),
+        radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px),
+        radial-gradient(#FFFFFF 0.7px, transparent 0.7px);
+      background-size: 110px 110px, 160px 160px, 75px 75px;
+      background-position: 0 0, 50px 80px, 25px 35px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
       text-decoration: none;
+      box-sizing: border-box;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
     }
-    .btn-cosmic-club-custom:hover {
-      transform: translate(-1px, -1px);
-      box-shadow: 4px 4px 0px #F3EEDA;
+    .cosmic-club-widget:active {
+      transform: translate(4px, 4px) !important;
+      box-shadow: 1px 1px 0px #E1DAB9 !important;
     }
-    .btn-cosmic-club-custom:active {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0px #F3EEDA;
+    .cosmic-club-widget img {
+      width: 75%;
+      height: 75%;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
     }
 
-    /* Stile per il pulsante About Me e pulsanti vuoti */
+    /* WIDGET STAMPS ROTANTE (Stesso stile del Cosmic Club) */
+    .stamps-widget {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: #000000;
+      border: 2px solid #E1DAB9;
+      border-radius: 13px;
+      box-shadow: 4px 4px 0px #E1DAB9;
+      background-image: 
+        radial-gradient(#FFFFFF 1.3px, transparent 1.3px),
+        radial-gradient(rgba(255,255,255,0.7) 1px, transparent 1px),
+        radial-gradient(#FFFFFF 0.7px, transparent 0.7px);
+      background-size: 110px 110px, 160px 160px, 75px 75px;
+      background-position: 0 0, 50px 80px, 25px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      cursor: pointer;
+    }
+    .stamps-widget:active {
+      transform: translate(4px, 4px) !important;
+      box-shadow: 1px 1px 0px #E1DAB9 !important;
+    }
+    .stamps-widget img {
+      width: 75%;
+      height: 75%;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Stile per il pulsante About Me e pulsanti crema */
     .btn-cream {
       width: 100%;
       background: #F3EEDA;
       color: #111111;
       border: 2px solid #111;
-      border-radius: 16px;
+      border-radius: 13px;
       padding: 12px;
       font-weight: 800;
       font-size: 0.85rem;
@@ -366,13 +400,12 @@
       box-shadow: 1px 1px 0px #111;
     }
 
-    /* Stile per i pulsanti vuoti di prova */
     .btn-empty-test {
       width: 100%;
       background: #ffffff;
       color: #777777;
       border: 2px dashed #999999;
-      border-radius: 16px;
+      border-radius: 13px;
       padding: 12px;
       font-weight: 700;
       font-size: 0.75rem;
@@ -381,7 +414,6 @@
       display: block;
     }
 
-    /* Stile per la riga dei social in basso (segnaposto con cerchietti) */
     .social-placeholder-row {
       display: flex;
       justify-content: center;
@@ -405,30 +437,13 @@
       color: #888;
     }
 
-    /* --- RESPONSIVE PER SMARTPHONE --- */
     @media screen and (max-width: 768px) {
-      body {
-        padding: 10px 5px;
-      }
-      .site-wrapper {
-        padding: 14px;
-        border-radius: 20px;
-        box-shadow: 4px 4px 0px #111111;
-        gap: 16px;
-      }
-      .top-banner h1 {
-        font-size: 2.2rem;
-      }
-      .grid-container {
-        grid-template-columns: 100%;
-        gap: 16px;
-      }
-      .col-left, .col-center, .col-right {
-        gap: 16px;
-      }
-      .receipt-box {
-        transform: rotate(0deg);
-      }
+      body { padding: 10px 5px; }
+      .site-wrapper { padding: 14px; border-radius: 20px; box-shadow: 4px 4px 0px #111111; gap: 16px; }
+      .top-banner h1 { font-size: 2.2rem; }
+      .grid-container { grid-template-columns: 100%; gap: 16px; }
+      .col-left, .col-center, .col-right { gap: 16px; }
+      .receipt-box { transform: rotate(0deg); }
     }
   </style>
 </head>
@@ -502,16 +517,14 @@
           <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
 
-        <!-- PRIMA RIGA DELLA DIVISIONE (Sinistra: Cosmic Club | Destra: 2 Pulsanti) -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;">
-          <!-- Colonna Sinistra: Widget Cosmic Club -->
+        <!-- PRIMA RIGA DELLA DIVISIONE (Cosmic Club | About Me + Pulsante vuoto) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div>
-            <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="btn-cosmic-club-custom">
-              COSMIC CLUB -&gt;
+            <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="cosmic-club-widget">
+              <img src="200×200Symbol.png" alt="Cosmic Club Member">
             </a>
           </div>
-          <!-- Colonna Destra: 2 Pulsanti (About Me + Pulsante vuoto) -->
-          <div style="display: flex; flex-direction: column; gap: 12px; justify-content: space-between;">
+          <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
             <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream">
               𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
             </a>
@@ -521,10 +534,9 @@
           </div>
         </div>
 
-        <!-- SECONDA RIGA DELLA DIVISIONE (Sinistra: 2 Pulsanti | Destra: My Stamps) -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;">
-          <!-- Colonna Sinistra: 2 Pulsanti vuoti di prova -->
-          <div style="display: flex; flex-direction: column; gap: 12px; justify-content: space-between;">
+        <!-- SECONDA RIGA DELLA DIVISIONE (Pulsanti vuoti | My Stamps Rotante) -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
+          <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
             <div class="btn-empty-test">
               [Pulsante Vuoto]
             </div>
@@ -532,15 +544,14 @@
               [Pulsante Vuoto]
             </div>
           </div>
-          <!-- Colonna Destra: Widget My Stamps -->
           <div>
-            <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="btn-cosmic-club-custom" style="text-decoration: none;">
-              𓍢ִ໋🀦 MY STAMPS -&gt;
+            <a href="https://seea-star.github.io/Cosmic-S-My-Stamps/" class="stamps-widget" id="stamps-link">
+              <img id="rotating-stamp" src="stamp-1.png" alt="My Stamps">
             </a>
           </div>
         </div>
 
-        <!-- SPAZIO IN BASSO PER I BOTTONI DEI SOCIAL (Pronto per quando mi darai il codice) -->
+        <!-- SPAZIO IN BASSO PER I BOTTONI DEI SOCIAL -->
         <div class="social-placeholder-row">
           <div class="social-placeholder-circle">1</div>
           <div class="social-placeholder-circle">2</div>
@@ -591,6 +602,31 @@
   </div>
 
   <script>
+    /* --- SCRIPT ROTAZIONE TIMBRI --- */
+    const stampsList = [
+      "stamp-1.png", "stamp-2.png", "stamp-21.png", "stamp-22.png", 
+      "stamp-23.png", "stamp-24.png", "stamp-25.png", "stamp-26.png", 
+      "stamp-27.png", "stamp-3.png", "stamp-4.png", "stamp-5.png", 
+      "stamp-6.png", "stamp-7.png", "stamp-8.png"
+    ];
+    
+    let currentStampIndex = 0;
+    const stampImgElement = document.getElementById('rotating-stamp');
+
+    function rotateStamp() {
+      currentStampIndex = (currentStampIndex + 1) % stampsList.length;
+      stampImgElement.style.opacity = 0; // Effetto dissolvenza dolce
+      setTimeout(() => {
+        stampImgElement.src = stampsList[currentStampIndex];
+        stampImgElement.style.opacity = 1;
+      }, 200);
+    }
+
+    // Cambia timbro ogni 3.5 secondi
+    setInterval(rotateStamp, 3500);
+
+
+    /* --- YOUTUBE PLAYER & ALTRI SCRIPT --- */
     let player;
     let isPlaying = false;
     const playPauseBtn = document.getElementById('play-pause-btn');
