@@ -339,32 +339,50 @@
       pointer-events: none;
     }
 
-    /* WIDGET MY STAMPS PULITO */
+    /* WIDGET MY STAMPS CON EFFETTO SFONDO CREMA AL PASSAGGIO DEL MOUSE */
     .stamps-clean-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
+      background: #ffffff;
+      border: 2px solid #111;
+      border-radius: 13px;
+      box-shadow: 3px 3px 0px #111;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       cursor: pointer;
+      overflow: hidden;
+      transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .stamps-clean-widget:hover {
+      background-color: #F3EEDA;
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0px #111;
+    }
+    .stamps-clean-widget:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #111;
     }
     .stamps-clean-widget img {
       width: 85%;
       height: 85%;
       object-fit: contain;
       display: block;
-      transition: opacity 0.3s ease, transform 0.2s ease;
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      opacity: 1;
+      transform: scale(1);
       filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.15));
+    }
+    .stamps-clean-widget img.fade-out {
+      opacity: 0;
+      transform: scale(0.92);
     }
     .stamps-clean-widget:hover img {
       transform: scale(1.05);
     }
-    .stamps-clean-widget:active img {
-      transform: scale(0.98);
-    }
 
-    /* STILI PER I PULSANTI TIPO "ABOUT ME" ( Crema, Nero, Bianco ) */
+    /* STILI PER I PULSANTI TIPO "ABOUT ME" */
     .btn-cream-large {
       width: 100%;
       flex: 1;
@@ -454,47 +472,45 @@
     .social-buttons-container {
       display: flex;
       flex-wrap: wrap;
+      gap: 14px;
       justify-content: center;
-      align-items: center;
-      gap: 12px;
-      padding: 15px 10px;
-      border-top: 2px dashed #111111;
-      margin-top: 10px;
+      margin-top: 5px;
+      padding-top: 20px;
+      border-top: 2px dashed #ddd;
     }
 
     .social-btn {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       background: #ffffff;
       border: 2px solid #111111;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 3px 3px 0px #111111;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
-      text-decoration: none;
+      box-shadow: inset 0 0 0 2px #111111, 3px 3px 0px #111111;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      cursor: pointer;
       overflow: hidden;
-      padding: 8px;
+      text-decoration: none;
+    }
+
+    .social-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: inset 0 0 0 2px #111111, 5px 5px 0px #111111;
+    }
+
+    .social-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: inset 0 0 0 2px #111111, 2px 2px 0px #111111;
     }
 
     .social-btn img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
       display: block;
-    }
-
-    .social-btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0px #111111;
-      background-color: #F3EEDA;
-    }
-
-    .social-btn:active {
-      transform: translate(1px, 1px);
-      box-shadow: 1px 1px 0px #111111;
+      border-radius: 50%;
     }
 
     @media screen and (max-width: 768px) {
@@ -565,7 +581,7 @@
         </div>
 
         <div>
-          <a href="https://seea-star.github.io/Cosmic-S-Webrings/" class="nav-box-btn-dark" style="text-decoration: none;">
+          <a href="https://cosmic-seea.neocities.org/Webrings" class="nav-box-btn-dark" style="text-decoration: none;">
             ★ WEBRINGS -&gt;
           </a>
         </div>
@@ -694,7 +710,7 @@
   </div>
 
   <script>
-    /* --- SCRIPT ROTAZIONE TIMBRI PULITI --- */
+    /* --- SCRIPT ROTAZIONE TIMBRI CON ANIMAZIONE FLUIDA (FADE) --- */
     const stampsList = [
       "stamp-1.png", "stamp-2.png", "stamp-21.png", "stamp-22.png", 
       "stamp-23.png", "stamp-24.png", "stamp-25.png", "stamp-26.png", 
@@ -706,12 +722,13 @@
     const stampImgElement = document.getElementById('rotating-stamp');
 
     function rotateStamp() {
-      currentStampIndex = (currentStampIndex + 1) % stampsList.length;
-      stampImgElement.style.opacity = 0;
+      stampImgElement.classList.add('fade-out');
+
       setTimeout(() => {
+        currentStampIndex = (currentStampIndex + 1) % stampsList.length;
         stampImgElement.src = stampsList[currentStampIndex];
-        stampImgElement.style.opacity = 1;
-      }, 200);
+        stampImgElement.classList.remove('fade-out');
+      }, 400);
     }
 
     setInterval(rotateStamp, 3500);
