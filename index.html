@@ -306,7 +306,7 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    /* WIDGET COSMIC CLUB (Il tuo codice esatto e adattabile) */
+    /* WIDGET COSMIC CLUB */
     .cosmic-club-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -339,7 +339,7 @@
       pointer-events: none;
     }
 
-    /* WIDGET MY STAMPS PULITO (Solo immagine rotante senza bordi) */
+    /* WIDGET MY STAMPS PULITO */
     .stamps-clean-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -364,7 +364,6 @@
       transform: scale(0.98);
     }
 
-    /* Pulsanti centrali ingranditi e ottimizzati */
     .btn-cream-large {
       width: 100%;
       flex: 1;
@@ -410,27 +409,51 @@
       justify-content: center;
     }
 
-    .social-placeholder-row {
+    /* STILI PER I PULSANTI SOCIAL CIRCOLARI (Identici alla pagina About Me) */
+    .social-buttons-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 12px;
-      padding: 10px;
-      background: #fcfcfc;
-      border: 2px dashed #ccc;
-      border-radius: 16px;
-      margin-top: 5px;
+      padding: 15px 10px;
+      border-top: 2px dashed #111111;
+      margin-top: 10px;
     }
-    .social-placeholder-circle {
-      width: 32px;
-      height: 32px;
-      background: #eee;
-      border: 2px solid #bbb;
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border: 2px solid #111111;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
-      color: #888;
+      box-shadow: 3px 3px 0px #111111;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+      text-decoration: none;
+      overflow: hidden;
+      padding: 8px;
+    }
+
+    .social-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .social-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #111111;
+      background-color: #F3EEDA;
+    }
+
+    .social-btn:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px #111111;
     }
 
     @media screen and (max-width: 768px) {
@@ -513,7 +536,7 @@
           <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
 
-        <!-- PRIMA RIGA DELLA DIVISIONE (Cosmic Club | About Me ingrandito + Pulsante vuoto) -->
+        <!-- PRIMA RIGA DELLA DIVISIONE -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div>
             <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="cosmic-club-widget">
@@ -530,7 +553,7 @@
           </div>
         </div>
 
-        <!-- SECONDA RIGA DELLA DIVISIONE (Pulsanti vuoti | My Stamps Pulito e Rotante) -->
+        <!-- SECONDA RIGA DELLA DIVISIONE -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
             <div class="btn-empty-test">
@@ -547,12 +570,47 @@
           </div>
         </div>
 
-        <!-- SPAZIO IN BASSO PER I BOTTONI DEI SOCIAL -->
-        <div class="social-placeholder-row">
-          <div class="social-placeholder-circle">1</div>
-          <div class="social-placeholder-circle">2</div>
-          <div class="social-placeholder-circle">3</div>
-          <div class="social-placeholder-circle">4</div>
+        <!-- BARRA SOCIAL DEFINITIVA (Sostituisce il vecchio segnaposto) -->
+        <div class="social-buttons-container">
+          <!-- Email -->
+          <a href="mailto:seea-star@proton.me" class="social-btn" title="Email">
+            <img src="email.png" alt="Email">
+          </a>
+
+          <!-- Pinterest -->
+          <a href="https://pin.it/2o1P4Chan" class="social-btn" title="Pinterest">
+            <img src="pinterest.png" alt="Pinterest">
+          </a>
+
+          <!-- YouTube -->
+          <a href="http://www.youtube.com/@seeastar12" class="social-btn" title="YouTube">
+            <img src="youtube.png" alt="YouTube">
+          </a>
+
+          <!-- Instagram -->
+          <a href="#" class="social-btn" title="Instagram">
+            <img src="instagram.png" alt="Instagram">
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@seeastar12?_r=1&_t=ZN-9A57q58Dexq" class="social-btn" title="TikTok">
+            <img src="tiktok.png" alt="TikTok">
+          </a>
+
+          <!-- Reddit -->
+          <a href="https://www.reddit.com/u/seeastar12/s/IDcd73jfHv" class="social-btn" title="Reddit" target="_blank">
+            <img src="reddit.png" alt="Reddit">
+          </a>
+
+          <!-- Tumblr -->
+          <a href="https://www.tumblr.com/seea-star?source=share" class="social-btn" title="Tumblr" target="_blank">
+            <img src="tumblr.png" alt="Tumblr">
+          </a>
+
+          <!-- Neocities Profile -->
+          <a href="https://neocities.org/site/cosmic-seea" class="social-btn" title="Neocities Profile">
+            <img src="Senza titolo 19_20260927125733.png" alt="Neocities">
+          </a>
         </div>
       </main>
 
@@ -611,16 +669,14 @@
 
     function rotateStamp() {
       currentStampIndex = (currentStampIndex + 1) % stampsList.length;
-      stampImgElement.style.opacity = 0; // Dissolvenza dolce
+      stampImgElement.style.opacity = 0;
       setTimeout(() => {
         stampImgElement.src = stampsList[currentStampIndex];
         stampImgElement.style.opacity = 1;
       }, 200);
     }
 
-    // Cambia timbro ogni 3.5 secondi
     setInterval(rotateStamp, 3500);
-
 
     /* --- YOUTUBE PLAYER & ALTRI SCRIPT --- */
     let player;
