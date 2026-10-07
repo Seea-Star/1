@@ -189,9 +189,8 @@
     .calendar-graphic-top-dark { background: #F3EEDA; height: 10px; width: 100%; }
     .calendar-graphic-body-dark { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #fff; }
 
-    /* STILI CALENDARIO E ICONE NEI GIORNI */
     .mini-calendar-dark { width: 100%; font-size: 0.68rem; text-align: center; border-collapse: collapse; }
-    .mini-calendar-dark th, .mini-calendar-dark td { padding: 4px 2px; border: none; color: #ffffff; vertical-align: middle; }
+    .mini-calendar-dark th, .mini-calendar-dark td { padding: 4px 2px; border: none; color: #ffffff; }
     .mini-calendar-dark th { 
       background: #F3EEDA; 
       color: #111111; 
@@ -200,38 +199,6 @@
       border-radius: 4px; 
     }
     .mini-calendar-dark td.today-dark { background: #F3EEDA; color: #111111; font-weight: 800; border-radius: 4px; }
-
-    /* Formattazione personalizzata per l'anno di 4 cifre */
-    .cal-year-style {
-      color: #F3EEDA;
-      font-weight: 800;
-      font-size: 0.8rem;
-    }
-
-    /* Immagine icona all'interno della casella del giorno */
-    .cal-day-img {
-      width: 16px;
-      height: 16px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .cal-nav-btn {
-      background: transparent;
-      border: none;
-      color: #F3EEDA;
-      font-weight: bold;
-      font-size: 0.85rem;
-      cursor: pointer;
-      padding: 0 4px;
-      user-select: none;
-      transition: transform 0.1s ease;
-    }
-    .cal-nav-btn:hover {
-      color: #ffffff;
-      transform: scale(1.2);
-    }
 
     .pixel-clock-box-dark {
       background: #111;
@@ -339,6 +306,7 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
+    /* WIDGET COSMIC CLUB */
     .cosmic-club-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -371,29 +339,16 @@
       pointer-events: none;
     }
 
+    /* WIDGET MY STAMPS CON ANIMAZIONE FLUIDA */
     .stamps-clean-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
-      background: #ffffff;
-      border: 2px solid #111;
-      border-radius: 13px;
-      box-shadow: 3px 3px 0px #111;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       cursor: pointer;
       overflow: hidden;
-      transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
-    }
-    .stamps-clean-widget:hover {
-      background-color: #F3EEDA;
-      transform: translate(-1px, -1px);
-      box-shadow: 4px 4px 0px #111;
-    }
-    .stamps-clean-widget:active {
-      transform: translate(2px, 2px);
-      box-shadow: 1px 1px 0px #111;
     }
     .stamps-clean-widget img {
       width: 85%;
@@ -413,6 +368,7 @@
       transform: scale(1.05);
     }
 
+    /* STILI PER I PULSANTI TIPO "ABOUT ME" */
     .btn-cream-large {
       width: 100%;
       flex: 1;
@@ -498,6 +454,7 @@
       box-shadow: 1px 1px 0px #111;
     }
 
+    /* STILI PER I PULSANTI SOCIAL CIRCOLARI (IDENTICI A ABOUT ME) */
     .social-buttons-container {
       display: flex;
       flex-wrap: wrap;
@@ -579,15 +536,7 @@
         </div>
 
         <div class="box-dark">
-          <div class="box-header">
-            <div>
-              <button class="cal-nav-btn" onclick="changeMonth(-1)">&#10094;</button>
-              <span id="cal-month-title">calendar</span>
-              <button class="cal-nav-btn" onclick="changeMonth(1)">&#10095;</button>
-              <span id="cal-year-title" class="cal-year-style">2026</span>
-            </div>
-            <div style="width:12px; height:12px; border:2px solid #F3EEDA; border-radius:2px; background: #F3EEDA;"></div>
-          </div>
+          <div class="box-header"><span id="cal-month-title">calendar</span><div style="width:12px; height:12px; border:2px solid #F3EEDA; border-radius:2px; background: #F3EEDA;"></div></div>
           <div class="box-body">
             <div class="calendar-graphic-dark">
               <div class="calendar-graphic-top-dark"></div>
@@ -641,6 +590,7 @@
             <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream-large">
               𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
             </a>
+            <!-- Spazio vuoto futuro 1 (Stile Nero) -->
             <a href="#" class="btn-dark-large"></a>
           </div>
         </div>
@@ -648,7 +598,9 @@
         <!-- SECONDA RIGA DELLA DIVISIONE -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
+            <!-- Spazio vuoto futuro 2 (Stile Bianco) -->
             <a href="#" class="btn-white-large"></a>
+            <!-- Spazio vuoto futuro 3 (Stile Crema) -->
             <a href="#" class="btn-cream-large"></a>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;">
@@ -658,16 +610,47 @@
           </div>
         </div>
 
-        <!-- BARRA SOCIAL -->
+        <!-- BARRA SOCIAL DEFINITIVA (Stile About Me con Reddit e Tumblr inclusi) -->
         <div class="social-buttons-container">
-          <a href="mailto:seea-star@proton.me" class="social-btn" title="Email"><img src="email.png" alt="Email"></a>
-          <a href="https://pin.it/2o1P4Chan" class="social-btn" title="Pinterest"><img src="pinterest.png" alt="Pinterest"></a>
-          <a href="http://www.youtube.com/@seeastar12" class="social-btn" title="YouTube"><img src="youtube.png" alt="YouTube"></a>
-          <a href="#" class="social-btn" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
-          <a href="https://www.tiktok.com/@seeastar12?_r=1&_t=ZN-9A57q58Dexq" class="social-btn" title="TikTok"><img src="tiktok.png" alt="TikTok"></a>
-          <a href="https://www.reddit.com/u/seeastar12/s/IDcd73jfHv" class="social-btn" title="Reddit" target="_blank"><img src="reddit.png" alt="Reddit"></a>
-          <a href="https://www.tumblr.com/seea-star?source=share" class="social-btn" title="Tumblr" target="_blank"><img src="tumblr.png" alt="Tumblr"></a>
-          <a href="https://neocities.org/site/cosmic-seea" class="social-btn" title="Neocities Profile"><img src="Senza titolo 19_20260927125733.png" alt="Neocities"></a>
+          <!-- Email -->
+          <a href="mailto:seea-star@proton.me" class="social-btn" title="Email">
+            <img src="email.png" alt="Email">
+          </a>
+
+          <!-- Pinterest -->
+          <a href="https://pin.it/2o1P4Chan" class="social-btn" title="Pinterest">
+            <img src="pinterest.png" alt="Pinterest">
+          </a>
+
+          <!-- YouTube -->
+          <a href="http://www.youtube.com/@seeastar12" class="social-btn" title="YouTube">
+            <img src="youtube.png" alt="YouTube">
+          </a>
+
+          <!-- Instagram -->
+          <a href="#" class="social-btn" title="Instagram">
+            <img src="instagram.png" alt="Instagram">
+          </a>
+
+          <!-- TikTok -->
+          <a href="https://www.tiktok.com/@seeastar12?_r=1&_t=ZN-9A57q58Dexq" class="social-btn" title="TikTok">
+            <img src="tiktok.png" alt="TikTok">
+          </a>
+
+          <!-- Reddit -->
+          <a href="https://www.reddit.com/u/seeastar12/s/IDcd73jfHv" class="social-btn" title="Reddit" target="_blank">
+            <img src="reddit.png" alt="Reddit">
+          </a>
+
+          <!-- Tumblr -->
+          <a href="https://www.tumblr.com/seea-star?source=share" class="social-btn" title="Tumblr" target="_blank">
+            <img src="tumblr.png" alt="Tumblr">
+          </a>
+
+          <!-- Neocities Profile -->
+          <a href="https://neocities.org/site/cosmic-seea" class="social-btn" title="Neocities Profile">
+            <img src="Senza titolo 19_20260927125733.png" alt="Neocities">
+          </a>
         </div>
       </main>
 
@@ -713,7 +696,7 @@
   </div>
 
   <script>
-    /* --- SCRIPT ROTAZIONE TIMBRI --- */
+    /* --- SCRIPT ROTAZIONE TIMBRI CON ANIMAZIONE FLUIDA (FADE) --- */
     const stampsList = [
       "stamp-1.png", "stamp-2.png", "stamp-21.png", "stamp-22.png", 
       "stamp-23.png", "stamp-24.png", "stamp-25.png", "stamp-26.png", 
@@ -725,6 +708,7 @@
     const stampImgElement = document.getElementById('rotating-stamp');
 
     function rotateStamp() {
+      if (!stampImgElement) return;
       stampImgElement.classList.add('fade-out');
 
       setTimeout(() => {
@@ -736,7 +720,7 @@
 
     setInterval(rotateStamp, 3500);
 
-    /* --- YOUTUBE PLAYER --- */
+    /* --- YOUTUBE PLAYER & ALTRI SCRIPT --- */
     let player;
     let isPlaying = false;
     const playPauseBtn = document.getElementById('play-pause-btn');
@@ -764,64 +748,71 @@
     }
 
     function onPlayerReady(event) {
-      screenText.innerHTML = `COSMIC-S Player<br><strong>Ready to Play</strong>`;
+      if (screenText) {
+        screenText.innerHTML = `COSMIC-S Player<br><strong>Ready to Play</strong>`;
+      }
     }
 
     function onPlayerStateChange(event) {
       if (event.data == YT.PlayerState.PLAYING) {
         isPlaying = true;
-        playPauseBtn.innerHTML = "&#10074;&#10074;";
+        if (playPauseBtn) playPauseBtn.innerHTML = "&#10074;&#10074;";
         try {
           const videoData = player.getVideoData();
-          if (videoData && videoData.title) {
+          if (videoData && videoData.title && screenText) {
             screenText.innerHTML = `Now Playing:<br><strong>${videoData.title}</strong>`;
           }
         } catch(e) {}
       } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
         isPlaying = false;
-        playPauseBtn.innerHTML = "&#9654;";
+        if (playPauseBtn) playPauseBtn.innerHTML = "&#9654;";
       }
     }
 
     function togglePlay() {
       if (!player) return;
-      if (isPlaying) { player.pauseVideo(); } else { player.playVideo(); }
+      if (isPlaying) {
+        player.pauseVideo();
+      } else {
+        player.playVideo();
+      }
     }
 
-    function nextSong() { if (player) player.nextVideo(); }
-    function prevSong() { if (player) player.previousVideo(); }
+    function nextSong() {
+      if (!player) return;
+      player.nextVideo();
+    }
 
-    /* --- SCRIPT CALENDARIO AVANZATO CON IMMAGINI E NOTE --- */
-    let displayedDate = new Date();
+    function prevSong() {
+      if (!player) return;
+      player.previousVideo();
+    }
 
-    const specialDays = {};
-
+    /* --- GENERATORE CALENDARIO DINAMICO --- */
     function generateCalendar() {
       const today = new Date();
       const currentDay = today.getDate();
-      const realMonth = today.getMonth();
-      const realYear = today.getFullYear();
+      const currentMonth = today.getMonth();
+      const currentYear = today.getFullYear();
+      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-      const viewMonth = displayedDate.getMonth();
-      const viewYear = displayedDate.getFullYear();
+      const monthTitleElem = document.getElementById('cal-month-title');
+      const dayNumElem = document.getElementById('cal-day-number');
+      
+      if (monthTitleElem) monthTitleElem.innerText = monthNames[currentMonth].toLowerCase();
+      if (dayNumElem) dayNumElem.innerText = currentDay;
 
-      const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
-
-      // Inserisce il mese tra le freccette e l'anno a 4 cifre subito dopo la seconda freccetta
-      document.getElementById('cal-month-title').innerText = monthNames[viewMonth];
-      document.getElementById('cal-year-title').innerText = viewYear;
-
-      document.getElementById('cal-day-number').innerText = currentDay;
-
-      const firstDayOfMonth = new Date(viewYear, viewMonth, 1).getDay();
-      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+      const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
       const tbody = document.getElementById('calendar-body');
+      
+      if (!tbody) return;
       tbody.innerHTML = '';
 
       let date = 1;
       for (let i = 0; i < 6; i++) {
         let row = document.createElement('tr');
-        let hasDate = false;
+        let hasDatesInRow = false;
 
         for (let j = 0; j < 7; j++) {
           let cell = document.createElement('td');
@@ -829,53 +820,20 @@
             cell.innerText = '';
           } else if (date > daysInMonth) {
             cell.innerText = '';
-            date++;
           } else {
-            const isToday = (date === currentDay && viewMonth === realMonth && viewYear === realYear);
-            const monthDayKey = `${String(viewMonth + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
-
-            // GESTIONE DEL COMPLEANNO (21 Dicembre)
-            if (viewMonth === 11 && date === 21) {
-              if (isToday) {
-                // Torta Nera (cake.png) se è OGGI (sfondo crema)
-                cell.innerHTML = `<img src="cake.png" alt="Birthday" class="cal-day-img" title="Happy Birthday!">`;
-              } else {
-                // Torta Bianca (cakew.png) se non è oggi (sfondo scuro)
-                cell.innerHTML = `<img src="cakew.png" alt="Birthday" class="cal-day-img" title="Birthday">`;
-              }
-            } 
-            // ALTRI GIORNI SPECIALI PERSONALIZZABILI
-            else if (specialDays[monthDayKey]) {
-              const item = specialDays[monthDayKey];
-              if (item.type === "img") {
-                cell.innerHTML = `<img src="${item.src}" class="cal-day-img" title="${item.title || ''}">`;
-              } else if (item.type === "text") {
-                cell.innerHTML = item.content;
-              }
-            } 
-            // GIORNO NORMALE
-            else {
-              cell.innerText = date;
-            }
-
-            if (isToday) {
+            cell.innerText = date;
+            if (date === currentDay) {
               cell.classList.add('today-dark');
             }
-
             date++;
-            hasDate = true;
+            hasDatesInRow = true;
           }
           row.appendChild(cell);
         }
-        if (hasDate) {
+        if (hasDatesInRow) {
           tbody.appendChild(row);
         }
       }
-    }
-
-    function changeMonth(offset) {
-      displayedDate.setMonth(displayedDate.getMonth() + offset);
-      generateCalendar();
     }
 
     function updatePixelClock() {
@@ -883,13 +841,18 @@
       const hours = String(now.getHours()).padStart(2, '0');
       const minutes = String(now.getMinutes()).padStart(2, '0');
       const seconds = String(now.getSeconds()).padStart(2, '0');
-      document.getElementById('pixel-clock').innerText = `${hours}:${minutes}:${seconds}`;
+      const clockElem = document.getElementById('pixel-clock');
+      if (clockElem) {
+        clockElem.innerText = `${hours}:${minutes}:${seconds}`;
+      }
     }
 
-    generateCalendar();
-    setInterval(updatePixelClock, 1000);
-    updatePixelClock();
+    window.addEventListener('DOMContentLoaded', () => {
+      generateCalendar();
+      updatePixelClock();
+      setInterval(updatePixelClock, 1000);
+    });
   </script>
 
 </body>
-</html>
+          </html>
