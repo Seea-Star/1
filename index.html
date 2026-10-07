@@ -200,6 +200,23 @@
     }
     .mini-calendar-dark td.today-dark { background: #F3EEDA; color: #111111; font-weight: 800; border-radius: 4px; }
 
+    /* Stili per le freccette del calendario */
+    .cal-nav-btn {
+      background: transparent;
+      border: none;
+      color: #F3EEDA;
+      font-weight: bold;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0 4px;
+      user-select: none;
+      transition: transform 0.1s ease;
+    }
+    .cal-nav-btn:hover {
+      color: #ffffff;
+      transform: scale(1.2);
+    }
+
     .pixel-clock-box-dark {
       background: #111;
       border: 2px solid #111;
@@ -550,7 +567,14 @@
         </div>
 
         <div class="box-dark">
-          <div class="box-header"><span id="cal-month-title">calendar</span><div style="width:12px; height:12px; border:2px solid #F3EEDA; border-radius:2px; background: #F3EEDA;"></div></div>
+          <div class="box-header">
+            <div>
+              <button class="cal-nav-btn" onclick="changeMonth(-1)">&#10094;</button>
+              <span id="cal-month-title">calendar</span>
+              <button class="cal-nav-btn" onclick="changeMonth(1)">&#10095;</button>
+            </div>
+            <div style="width:12px; height:12px; border:2px solid #F3EEDA; border-radius:2px; background: #F3EEDA;"></div>
+          </div>
           <div class="box-body">
             <div class="calendar-graphic-dark">
               <div class="calendar-graphic-top-dark"></div>
@@ -799,25 +823,38 @@
       player.previousVideo();
     }
 
+    /* --- SCRIPT CALENDARIO INTERATTIVO CON FRECCETTE --- */
+    let displayedDate = new Date(); // Mantiene la data attualmente visualizzata
+
     function generateCalendar() {
       const today = new Date();
       const currentDay = today.getDate();
-      const currentMonth = today.getMonth();
-      const currentYear = today.getFullYear();
-      const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      const realMonth = today.getMonth();
+      const realYear = today.getFullYear();
 
-      document.getElementById('cal-month-title').innerText = monthNames[currentMonth].toLowerCase();
+      const viewMonth = displayedDate.getMonth();
+      const viewYear = displayedDate.getFullYear();
+
+      const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+
+      // Se l'anno è diverso da quello attuale mostra ad es. "october '24", altrimenti solo il mese
+      if (viewYear !== realYear) {
+        document.getElementById('cal-month-title').innerText = `${monthNames[viewMonth]} '${String(viewYear).slice(-2)}`;
+      } else {
+        document.getElementById('cal-month-title').innerText = monthNames[viewMonth];
+      }
+
       document.getElementById('cal-day-number').innerText = currentDay;
 
-      const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const firstDayOfMonth = new Date(viewYear, viewMonth, 1).getDay();
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
       const tbody = document.getElementById('calendar-body');
       tbody.innerHTML = '';
 
       let date = 1;
       for (let i = 0; i < 6; i++) {
         let row = document.createElement('tr');
-        let hasDate5 = false;
+        let hasDate = false;
 
         for (let j = 0; j < 7; j++) {
           let cell = document.createElement('td');
@@ -828,18 +865,24 @@
             date++;
           } else {
             cell.innerText = date;
-            if (date === currentDay) {
+            // Evidenzia solo se è esattamente il giorno di oggi nel mese/anno corrente
+            if (date === currentDay && viewMonth === realMonth && viewYear === realYear) {
               cell.classList.add('today-dark');
             }
             date++;
-            hasDate5 = true;
+            hasDate = true;
           }
           row.appendChild(cell);
         }
-        if (hasDate5) {
+        if (hasDate) {
           tbody.appendChild(row);
         }
       }
+    }
+
+    function changeMonth(offset) {
+      displayedDate.setMonth(displayedDate.getMonth() + offset);
+      generateCalendar();
     }
 
     function updatePixelClock() {
@@ -856,4 +899,4 @@
   </script>
 
 </body>
-</html>
+          </html>
