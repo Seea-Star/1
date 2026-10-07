@@ -189,8 +189,9 @@
     .calendar-graphic-top-dark { background: #F3EEDA; height: 10px; width: 100%; }
     .calendar-graphic-body-dark { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #fff; }
 
+    /* STILI CALENDARIO E ICONE NEI GIORNI */
     .mini-calendar-dark { width: 100%; font-size: 0.68rem; text-align: center; border-collapse: collapse; }
-    .mini-calendar-dark th, .mini-calendar-dark td { padding: 4px 2px; border: none; color: #ffffff; }
+    .mini-calendar-dark th, .mini-calendar-dark td { padding: 4px 2px; border: none; color: #ffffff; vertical-align: middle; }
     .mini-calendar-dark th { 
       background: #F3EEDA; 
       color: #111111; 
@@ -200,7 +201,23 @@
     }
     .mini-calendar-dark td.today-dark { background: #F3EEDA; color: #111111; font-weight: 800; border-radius: 4px; }
 
-    /* Stili per le freccette del calendario */
+    /* Formattazione personalizzata per l'anno */
+    .cal-year-style {
+      font-style: italic;
+      color: #F3EEDA;
+      font-weight: bold;
+      margin-left: 2px;
+    }
+
+    /* Immagine icona all'interno della casella del giorno */
+    .cal-day-img {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
     .cal-nav-btn {
       background: transparent;
       border: none;
@@ -323,7 +340,6 @@
     .nav-box-btn-dark:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0px #F3EEDA; }
     .nav-box-btn-dark:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #F3EEDA; }
 
-    /* WIDGET COSMIC CLUB */
     .cosmic-club-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -356,7 +372,6 @@
       pointer-events: none;
     }
 
-    /* WIDGET MY STAMPS CON EFFETTO SFONDO CREMA AL PASSAGGIO DEL MOUSE */
     .stamps-clean-widget {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -399,7 +414,6 @@
       transform: scale(1.05);
     }
 
-    /* STILI PER I PULSANTI TIPO "ABOUT ME" */
     .btn-cream-large {
       width: 100%;
       flex: 1;
@@ -485,7 +499,6 @@
       box-shadow: 1px 1px 0px #111;
     }
 
-    /* STILI PER I PULSANTI SOCIAL CIRCOLARI */
     .social-buttons-container {
       display: flex;
       flex-wrap: wrap;
@@ -628,7 +641,6 @@
             <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream-large">
               𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
             </a>
-            <!-- Spazio vuoto futuro 1 (Stile Nero) -->
             <a href="#" class="btn-dark-large"></a>
           </div>
         </div>
@@ -636,9 +648,7 @@
         <!-- SECONDA RIGA DELLA DIVISIONE -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
-            <!-- Spazio vuoto futuro 2 (Stile Bianco) -->
             <a href="#" class="btn-white-large"></a>
-            <!-- Spazio vuoto futuro 3 (Stile Crema) -->
             <a href="#" class="btn-cream-large"></a>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;">
@@ -648,47 +658,16 @@
           </div>
         </div>
 
-        <!-- BARRA SOCIAL DEFINITIVA -->
+        <!-- BARRA SOCIAL -->
         <div class="social-buttons-container">
-          <!-- Email -->
-          <a href="mailto:seea-star@proton.me" class="social-btn" title="Email">
-            <img src="email.png" alt="Email">
-          </a>
-
-          <!-- Pinterest -->
-          <a href="https://pin.it/2o1P4Chan" class="social-btn" title="Pinterest">
-            <img src="pinterest.png" alt="Pinterest">
-          </a>
-
-          <!-- YouTube -->
-          <a href="http://www.youtube.com/@seeastar12" class="social-btn" title="YouTube">
-            <img src="youtube.png" alt="YouTube">
-          </a>
-
-          <!-- Instagram -->
-          <a href="#" class="social-btn" title="Instagram">
-            <img src="instagram.png" alt="Instagram">
-          </a>
-
-          <!-- TikTok -->
-          <a href="https://www.tiktok.com/@seeastar12?_r=1&_t=ZN-9A57q58Dexq" class="social-btn" title="TikTok">
-            <img src="tiktok.png" alt="TikTok">
-          </a>
-
-          <!-- Reddit -->
-          <a href="https://www.reddit.com/u/seeastar12/s/IDcd73jfHv" class="social-btn" title="Reddit" target="_blank">
-            <img src="reddit.png" alt="Reddit">
-          </a>
-
-          <!-- Tumblr -->
-          <a href="https://www.tumblr.com/seea-star?source=share" class="social-btn" title="Tumblr" target="_blank">
-            <img src="tumblr.png" alt="Tumblr">
-          </a>
-
-          <!-- Neocities Profile -->
-          <a href="https://neocities.org/site/cosmic-seea" class="social-btn" title="Neocities Profile">
-            <img src="Senza titolo 19_20260927125733.png" alt="Neocities">
-          </a>
+          <a href="mailto:seea-star@proton.me" class="social-btn" title="Email"><img src="email.png" alt="Email"></a>
+          <a href="https://pin.it/2o1P4Chan" class="social-btn" title="Pinterest"><img src="pinterest.png" alt="Pinterest"></a>
+          <a href="http://www.youtube.com/@seeastar12" class="social-btn" title="YouTube"><img src="youtube.png" alt="YouTube"></a>
+          <a href="#" class="social-btn" title="Instagram"><img src="instagram.png" alt="Instagram"></a>
+          <a href="https://www.tiktok.com/@seeastar12?_r=1&_t=ZN-9A57q58Dexq" class="social-btn" title="TikTok"><img src="tiktok.png" alt="TikTok"></a>
+          <a href="https://www.reddit.com/u/seeastar12/s/IDcd73jfHv" class="social-btn" title="Reddit" target="_blank"><img src="reddit.png" alt="Reddit"></a>
+          <a href="https://www.tumblr.com/seea-star?source=share" class="social-btn" title="Tumblr" target="_blank"><img src="tumblr.png" alt="Tumblr"></a>
+          <a href="https://neocities.org/site/cosmic-seea" class="social-btn" title="Neocities Profile"><img src="Senza titolo 19_20260927125733.png" alt="Neocities"></a>
         </div>
       </main>
 
@@ -734,7 +713,7 @@
   </div>
 
   <script>
-    /* --- SCRIPT ROTAZIONE TIMBRI CON ANIMAZIONE FLUIDA (FADE) --- */
+    /* --- SCRIPT ROTAZIONE TIMBRI --- */
     const stampsList = [
       "stamp-1.png", "stamp-2.png", "stamp-21.png", "stamp-22.png", 
       "stamp-23.png", "stamp-24.png", "stamp-25.png", "stamp-26.png", 
@@ -757,7 +736,7 @@
 
     setInterval(rotateStamp, 3500);
 
-    /* --- YOUTUBE PLAYER & ALTRI SCRIPT --- */
+    /* --- YOUTUBE PLAYER --- */
     let player;
     let isPlaying = false;
     const playPauseBtn = document.getElementById('play-pause-btn');
@@ -806,25 +785,18 @@
 
     function togglePlay() {
       if (!player) return;
-      if (isPlaying) {
-        player.pauseVideo();
-      } else {
-        player.playVideo();
-      }
+      if (isPlaying) { player.pauseVideo(); } else { player.playVideo(); }
     }
 
-    function nextSong() {
-      if (!player) return;
-      player.nextVideo();
-    }
+    function nextSong() { if (player) player.nextVideo(); }
+    function prevSong() { if (player) player.previousVideo(); }
 
-    function prevSong() {
-      if (!player) return;
-      player.previousVideo();
-    }
+    /* --- SCRIPT CALENDARIO AVANZATO CON IMMAGINI E NOTE --- */
+    let displayedDate = new Date();
 
-    /* --- SCRIPT CALENDARIO INTERATTIVO CON FRECCETTE --- */
-    let displayedDate = new Date(); // Mantiene la data attualmente visualizzata
+    // Puoi aggiungere qui altri giorni speciali in formato "MM-DD"
+    // Esempio: "10-31": { type: "text", content: "🎃" }
+    const specialDays = {};
 
     function generateCalendar() {
       const today = new Date();
@@ -837,12 +809,9 @@
 
       const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-      // Se l'anno è diverso da quello attuale mostra ad es. "october '24", altrimenti solo il mese
-      if (viewYear !== realYear) {
-        document.getElementById('cal-month-title').innerText = `${monthNames[viewMonth]} '${String(viewYear).slice(-2)}`;
-      } else {
-        document.getElementById('cal-month-title').innerText = monthNames[viewMonth];
-      }
+      // Titolo Mese + Anno formattato in modo unico
+      const yearFormatted = `<span class="cal-year-style">'${String(viewYear).slice(-2)}</span>`;
+      document.getElementById('cal-month-title').innerHTML = `${monthNames[viewMonth]} ${yearFormatted}`;
 
       document.getElementById('cal-day-number').innerText = currentDay;
 
@@ -864,11 +833,37 @@
             cell.innerText = '';
             date++;
           } else {
-            cell.innerText = date;
-            // Evidenzia solo se è esattamente il giorno di oggi nel mese/anno corrente
-            if (date === currentDay && viewMonth === realMonth && viewYear === realYear) {
+            const isToday = (date === currentDay && viewMonth === realMonth && viewYear === realYear);
+            const monthDayKey = `${String(viewMonth + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+
+            // GESTIONE DEL COMPLEANNO (21 Dicembre)
+            if (viewMonth === 11 && date === 21) {
+              if (isToday) {
+                // Torta Nera (cake.png) se è OGGII (sfondo crema)
+                cell.innerHTML = `<img src="cake.png" alt="Birthday" class="cal-day-img" title="Happy Birthday!">`;
+              } else {
+                // Torta Bianca (cakew.png) se non è oggi (sfondo scuro)
+                cell.innerHTML = `<img src="cakew.png" alt="Birthday" class="cal-day-img" title="Birthday">`;
+              }
+            } 
+            // ALTRI GIORNI SPECIALI PERSONALIZZABILI
+            else if (specialDays[monthDayKey]) {
+              const item = specialDays[monthDayKey];
+              if (item.type === "img") {
+                cell.innerHTML = `<img src="${item.src}" class="cal-day-img" title="${item.title || ''}">`;
+              } else if (item.type === "text") {
+                cell.innerHTML = item.content;
+              }
+            } 
+            // GIORNO NORMALE
+            else {
+              cell.innerText = date;
+            }
+
+            if (isToday) {
               cell.classList.add('today-dark');
             }
+
             date++;
             hasDate = true;
           }
@@ -899,4 +894,4 @@
   </script>
 
 </body>
-          </html>
+</html>
