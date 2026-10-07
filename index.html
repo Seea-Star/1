@@ -201,12 +201,11 @@
     }
     .mini-calendar-dark td.today-dark { background: #F3EEDA; color: #111111; font-weight: 800; border-radius: 4px; }
 
-    /* Formattazione personalizzata per l'anno */
+    /* Formattazione personalizzata per l'anno di 4 cifre */
     .cal-year-style {
-      font-style: italic;
       color: #F3EEDA;
-      font-weight: bold;
-      margin-left: 2px;
+      font-weight: 800;
+      font-size: 0.8rem;
     }
 
     /* Immagine icona all'interno della casella del giorno */
@@ -585,6 +584,7 @@
               <button class="cal-nav-btn" onclick="changeMonth(-1)">&#10094;</button>
               <span id="cal-month-title">calendar</span>
               <button class="cal-nav-btn" onclick="changeMonth(1)">&#10095;</button>
+              <span id="cal-year-title" class="cal-year-style">2026</span>
             </div>
             <div style="width:12px; height:12px; border:2px solid #F3EEDA; border-radius:2px; background: #F3EEDA;"></div>
           </div>
@@ -794,8 +794,6 @@
     /* --- SCRIPT CALENDARIO AVANZATO CON IMMAGINI E NOTE --- */
     let displayedDate = new Date();
 
-    // Puoi aggiungere qui altri giorni speciali in formato "MM-DD"
-    // Esempio: "10-31": { type: "text", content: "🎃" }
     const specialDays = {};
 
     function generateCalendar() {
@@ -809,9 +807,9 @@
 
       const monthNames = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 
-      // Titolo Mese + Anno formattato in modo unico
-      const yearFormatted = `<span class="cal-year-style">'${String(viewYear).slice(-2)}</span>`;
-      document.getElementById('cal-month-title').innerHTML = `${monthNames[viewMonth]} ${yearFormatted}`;
+      // Inserisce il mese tra le freccette e l'anno a 4 cifre subito dopo la seconda freccetta
+      document.getElementById('cal-month-title').innerText = monthNames[viewMonth];
+      document.getElementById('cal-year-title').innerText = viewYear;
 
       document.getElementById('cal-day-number').innerText = currentDay;
 
@@ -839,7 +837,7 @@
             // GESTIONE DEL COMPLEANNO (21 Dicembre)
             if (viewMonth === 11 && date === 21) {
               if (isToday) {
-                // Torta Nera (cake.png) se è OGGII (sfondo crema)
+                // Torta Nera (cake.png) se è OGGI (sfondo crema)
                 cell.innerHTML = `<img src="cake.png" alt="Birthday" class="cal-day-img" title="Happy Birthday!">`;
               } else {
                 // Torta Bianca (cakew.png) se non è oggi (sfondo scuro)
