@@ -160,14 +160,6 @@
       background: #F3EEDA;
       color: #111111;
     }
-    .cal-year-display {
-      text-align: center;
-      font-size: 0.65rem;
-      color: #F3EEDA;
-      font-weight: 700;
-      margin-bottom: 6px;
-      letter-spacing: 1px;
-    }
 
     .receipt-box {
       background: #ffffff;
@@ -212,7 +204,7 @@
       margin-top: 8px;
     }
 
-    /* RECCUADRO GIORNO OGGI CLICCABILE */
+    /* RECTANGOLINO GIORNO OGGI CLICCABILE */
     .calendar-graphic-dark { 
       width: 36px; height: 36px; border: 2px solid #F3EEDA; border-radius: 6px; background: #222; margin: 0 auto 8px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 2px 2px 0px #F3EEDA;
       cursor: pointer;
@@ -590,7 +582,7 @@
           <div class="receipt-barcode">𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃</div>
         </div>
 
-        <!-- BOX CALENDARIO -->
+        <!-- BOX CALENDARIO MODIFICATO -->
         <div class="box-dark">
           <div class="box-header">
             <button class="cal-nav-btn" onclick="changeMonth(-1)" title="Mese precedente">◄</button>
@@ -598,7 +590,6 @@
             <button class="cal-nav-btn" onclick="changeMonth(1)" title="Mese successivo">►</button>
           </div>
           <div class="box-body">
-            <div id="cal-year-display" class="cal-year-display">----</div>
             
             <!-- RECTANGOLINO CON IL GIORNO CORRENTE / CLICCABILE PER RIPORTARE AD OGGI -->
             <div class="calendar-graphic-dark" onclick="resetToToday()" title="Clicca per tornare al mese di oggi">
@@ -834,7 +825,7 @@
       player.previousVideo();
     }
 
-    /* LOGICA CALENDARIO */
+    /* LOGICA CALENDARIO AGGIORNATA */
     let displayDate = new Date(); // Data per la navigazione del mese/anno
 
     // Cambia il mese con le freccine
@@ -843,7 +834,7 @@
       generateCalendar();
     }
 
-    // Torna subito al mese e giorno corrente quando si clicca il riquadro in alto
+    // Torna subito al mese e giorno corrente quando si clicca il riquadro del giorno
     function resetToToday() {
       displayDate = new Date();
       generateCalendar();
@@ -861,11 +852,12 @@
       const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
       const monthTitleElem = document.getElementById('cal-month-title');
-      const yearDisplayElem = document.getElementById('cal-year-display');
       const dayNumElem = document.getElementById('cal-day-number');
       
-      if (monthTitleElem) monthTitleElem.innerText = monthNames[viewMonth].toLowerCase();
-      if (yearDisplayElem) yearDisplayElem.innerText = viewYear;
+      // Mostra Mese e Anno insieme nell'intestazione
+      if (monthTitleElem) {
+        monthTitleElem.innerText = `${monthNames[viewMonth].toLowerCase()} ${viewYear}`;
+      }
       
       // Il riquadro in alto mostra SEMPRE ed ESATTAMENTE il giorno presente
       if (dayNumElem) {
@@ -900,10 +892,8 @@
 
             if (isBirthday) {
               if (isToday) {
-                // Se è il 21 Dicembre ED è il giorno di oggi (selezionato/evidenziato): cake.png (nera)
                 cell.innerHTML = `<img src="cake.png" alt="Birthday Cake" class="cake-icon-highlight" title="Happy Birthday!">`;
               } else {
-                // Se è il 21 Dicembre normale (non oggi): cakew.png (bianca)
                 cell.innerHTML = `<img src="cakew.png" alt="Birthday Cake" class="cake-icon" title="Birthday">`;
               }
             } else {
