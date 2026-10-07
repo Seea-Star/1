@@ -143,7 +143,7 @@
       align-items: center;
     }
 
-    /* STILI CONTROLLI E TESTO CALENDARIO */
+    /* CONTROLLI E TESTO CALENDARIO */
     .cal-nav-btn {
       background: #222222;
       color: #F3EEDA;
@@ -212,8 +212,17 @@
       margin-top: 8px;
     }
 
+    /* RECCUADRO GIORNO OGGI CLICCABILE */
     .calendar-graphic-dark { 
       width: 36px; height: 36px; border: 2px solid #F3EEDA; border-radius: 6px; background: #222; margin: 0 auto 8px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 2px 2px 0px #F3EEDA;
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+    .calendar-graphic-dark:hover {
+      transform: scale(1.08);
+    }
+    .calendar-graphic-dark:active {
+      transform: scale(0.95);
     }
     .calendar-graphic-top-dark { background: #F3EEDA; height: 10px; width: 100%; }
     .calendar-graphic-body-dark { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #fff; }
@@ -229,7 +238,7 @@
     }
     .mini-calendar-dark td.today-dark { background: #F3EEDA; color: #111111; font-weight: 800; border-radius: 4px; }
 
-    /* STILI ICONA TORTA PER IL COMPLEANNO */
+    /* ICONE TORTA COMPLEANNO */
     .cake-icon {
       width: 14px;
       height: 14px;
@@ -414,7 +423,7 @@
       transform: scale(1.05);
     }
 
-    /* STILI PER I PULSANTI TIPO "ABOUT ME" */
+    /* PULSANTI E LINK SEZIONI */
     .btn-cream-large {
       width: 100%;
       flex: 1;
@@ -500,7 +509,7 @@
       box-shadow: 1px 1px 0px #111;
     }
 
-    /* STILI PER I PULSANTI SOCIAL CIRCOLARI */
+    /* PULSANTI SOCIAL CIRCOLARI */
     .social-buttons-container {
       display: flex;
       flex-wrap: wrap;
@@ -581,7 +590,7 @@
           <div class="receipt-barcode">𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃</div>
         </div>
 
-        <!-- BOX CALENDARIO CON FRECCINE E ANNO SEPARATO -->
+        <!-- BOX CALENDARIO -->
         <div class="box-dark">
           <div class="box-header">
             <button class="cal-nav-btn" onclick="changeMonth(-1)" title="Mese precedente">◄</button>
@@ -590,10 +599,13 @@
           </div>
           <div class="box-body">
             <div id="cal-year-display" class="cal-year-display">----</div>
-            <div class="calendar-graphic-dark">
+            
+            <!-- RECTANGOLINO CON IL GIORNO CORRENTE / CLICCABILE PER RIPORTARE AD OGGI -->
+            <div class="calendar-graphic-dark" onclick="resetToToday()" title="Clicca per tornare al mese di oggi">
               <div class="calendar-graphic-top-dark"></div>
               <div class="calendar-graphic-body-dark" id="cal-day-number">--</div>
             </div>
+
             <table class="mini-calendar-dark">
               <thead>
                 <tr><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr>
@@ -626,12 +638,12 @@
       </aside>
 
       <main class="col-center">
-        <!-- Widget Scratch in alto -->
+        <!-- Widget Scratch -->
         <div style="width: 100%; aspect-ratio: 485 / 402; border-radius: 16px; border: 2px solid #111111; box-shadow: 3px 3px 0px #111111; background: #111; overflow: hidden;">
           <iframe src="https://scratch.mit.edu/projects/1385798480/embed" allowtransparency="true" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen style="display: block; border: none; width: 100%; height: 100%;"></iframe>
         </div>
 
-        <!-- PRIMA RIGA DELLA DIVISIONE -->
+        <!-- RIGA 1 -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div>
             <a href="https://cosmic-seea.neocities.org/CosmicClub" target="_blank" class="cosmic-club-widget">
@@ -646,7 +658,7 @@
           </div>
         </div>
 
-        <!-- SECONDA RIGA DELLA DIVISIONE -->
+        <!-- RIGA 2 -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
             <a href="#" class="btn-white-large"></a>
@@ -659,44 +671,29 @@
           </div>
         </div>
 
-        <!-- BARRA SOCIAL DEFINITIVA -->
+        <!-- BARRA SOCIAL -->
         <div class="social-buttons-container">
-          <!-- Email -->
           <a href="mailto:seea-star@proton.me" class="social-btn" title="Email">
             <img src="email.png" alt="Email">
           </a>
-
-          <!-- Pinterest -->
           <a href="https://pin.it/2o1P4Chan" class="social-btn" title="Pinterest">
             <img src="pinterest.png" alt="Pinterest">
           </a>
-
-          <!-- YouTube -->
           <a href="http://www.youtube.com/@seeastar12" class="social-btn" title="YouTube">
             <img src="youtube.png" alt="YouTube">
           </a>
-
-          <!-- Instagram -->
           <a href="#" class="social-btn" title="Instagram">
             <img src="instagram.png" alt="Instagram">
           </a>
-
-          <!-- TikTok -->
           <a href="https://www.tiktok.com/@seeastar12?_r=1&_t=ZN-9A57q58Dexq" class="social-btn" title="TikTok">
             <img src="tiktok.png" alt="TikTok">
           </a>
-
-          <!-- Reddit -->
           <a href="https://www.reddit.com/u/seeastar12/s/IDcd73jfHv" class="social-btn" title="Reddit" target="_blank">
             <img src="reddit.png" alt="Reddit">
           </a>
-
-          <!-- Tumblr -->
           <a href="https://www.tumblr.com/seea-star?source=share" class="social-btn" title="Tumblr" target="_blank">
             <img src="tumblr.png" alt="Tumblr">
           </a>
-
-          <!-- Neocities Profile -->
           <a href="https://neocities.org/site/cosmic-seea" class="social-btn" title="Neocities Profile">
             <img src="Senza titolo 19_20260927125733.png" alt="Neocities">
           </a>
@@ -745,7 +742,7 @@
   </div>
 
   <script>
-    /* --- SCRIPT ROTAZIONE TIMBRI CON ANIMAZIONE FLUIDA (FADE) --- */
+    /* ROTAZIONE TIMBRI */
     const stampsList = [
       "stamp-1.png", "stamp-2.png", "stamp-21.png", "stamp-22.png", 
       "stamp-23.png", "stamp-24.png", "stamp-25.png", "stamp-26.png", 
@@ -769,7 +766,7 @@
 
     setInterval(rotateStamp, 3500);
 
-    /* --- YOUTUBE PLAYER & ALTRI SCRIPT --- */
+    /* PLAYER YOUTUBE */
     let player;
     let isPlaying = false;
     const playPauseBtn = document.getElementById('play-pause-btn');
@@ -837,21 +834,29 @@
       player.previousVideo();
     }
 
-    /* --- LOGICA CALENDARIO CON NAVIGAZIONE MESI, ANNO SEPARATO E IMMAGINI COMPLEANNO --- */
-    let displayDate = new Date(); // Data usata per navigare il calendario
-    const actualToday = new Date(); // Data reale odierna per evidenziare il giorno corrente
+    /* LOGICA CALENDARIO */
+    let displayDate = new Date(); // Data per la navigazione del mese/anno
 
+    // Cambia il mese con le freccine
     function changeMonth(offset) {
       displayDate.setMonth(displayDate.getMonth() + offset);
       generateCalendar();
     }
 
+    // Torna subito al mese e giorno corrente quando si clicca il riquadro in alto
+    function resetToToday() {
+      displayDate = new Date();
+      generateCalendar();
+    }
+
     function generateCalendar() {
+      const realToday = new Date(); // Data REALE e ATTUALE corrente
+      const realDayNumber = realToday.getDate(); // Il numero esatto di OGGI
+
       const viewMonth = displayDate.getMonth();
       const viewYear = displayDate.getFullYear();
-      
-      const isCurrentMonth = (actualToday.getFullYear() === viewYear && actualToday.getMonth() === viewMonth);
-      const todayDateNumber = isCurrentMonth ? actualToday.getDate() : null;
+
+      const isCurrentMonthView = (realToday.getFullYear() === viewYear && realToday.getMonth() === viewMonth);
 
       const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -861,8 +866,10 @@
       
       if (monthTitleElem) monthTitleElem.innerText = monthNames[viewMonth].toLowerCase();
       if (yearDisplayElem) yearDisplayElem.innerText = viewYear;
+      
+      // Il riquadro in alto mostra SEMPRE ed ESATTAMENTE il giorno presente
       if (dayNumElem) {
-        dayNumElem.innerText = isCurrentMonth ? actualToday.getDate() : '--';
+        dayNumElem.innerText = realDayNumber;
       }
 
       const firstDayOfMonth = new Date(viewYear, viewMonth, 1).getDay();
@@ -884,8 +891,8 @@
           } else if (date > daysInMonth) {
             cell.innerText = '';
           } else {
-            const isToday = (date === todayDateNumber);
-            const isBirthday = (viewMonth === 11 && date === 21); // 11 = Dicembre (0-indexed)
+            const isToday = (isCurrentMonthView && date === realDayNumber);
+            const isBirthday = (viewMonth === 11 && date === 21); // 21 Dicembre (mese 11)
 
             if (isToday) {
               cell.classList.add('today-dark');
@@ -893,10 +900,10 @@
 
             if (isBirthday) {
               if (isToday) {
-                // Se è il 21 Dicembre ED è il giorno di oggi (evidenziato): torta nera cake.png
+                // Se è il 21 Dicembre ED è il giorno di oggi (selezionato/evidenziato): cake.png (nera)
                 cell.innerHTML = `<img src="cake.png" alt="Birthday Cake" class="cake-icon-highlight" title="Happy Birthday!">`;
               } else {
-                // Se è il 21 Dicembre in generale (non evidenziato): torta bianca cakew.png
+                // Se è il 21 Dicembre normale (non oggi): cakew.png (bianca)
                 cell.innerHTML = `<img src="cakew.png" alt="Birthday Cake" class="cake-icon" title="Birthday">`;
               }
             } else {
