@@ -138,6 +138,35 @@
       background: #222222;
       color: #ffffff;
       border-bottom: 2px solid #444444;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* STILI CONTROLLI E TESTO CALENDARIO */
+    .cal-nav-btn {
+      background: #222222;
+      color: #F3EEDA;
+      border: 1px solid #F3EEDA;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.65rem;
+      padding: 2px 5px;
+      line-height: 1;
+      user-select: none;
+      transition: background 0.1s;
+    }
+    .cal-nav-btn:hover {
+      background: #F3EEDA;
+      color: #111111;
+    }
+    .cal-year-display {
+      text-align: center;
+      font-size: 0.65rem;
+      color: #F3EEDA;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
     }
 
     .receipt-box {
@@ -190,7 +219,7 @@
     .calendar-graphic-body-dark { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; color: #fff; }
 
     .mini-calendar-dark { width: 100%; font-size: 0.68rem; text-align: center; border-collapse: collapse; }
-    .mini-calendar-dark th, .mini-calendar-dark td { padding: 4px 2px; border: none; color: #ffffff; }
+    .mini-calendar-dark th, .mini-calendar-dark td { padding: 4px 2px; border: none; color: #ffffff; vertical-align: middle; }
     .mini-calendar-dark th { 
       background: #F3EEDA; 
       color: #111111; 
@@ -199,6 +228,23 @@
       border-radius: 4px; 
     }
     .mini-calendar-dark td.today-dark { background: #F3EEDA; color: #111111; font-weight: 800; border-radius: 4px; }
+
+    /* STILI ICONA TORTA PER IL COMPLEANNO */
+    .cake-icon {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .cake-icon-highlight {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      vertical-align: middle;
+      display: inline-block;
+      filter: drop-shadow(0 0 2px #111111);
+    }
 
     .pixel-clock-box-dark {
       background: #111;
@@ -454,7 +500,7 @@
       box-shadow: 1px 1px 0px #111;
     }
 
-    /* STILI PER I PULSANTI SOCIAL CIRCOLARI (IDENTICI A ABOUT ME) */
+    /* STILI PER I PULSANTI SOCIAL CIRCOLARI */
     .social-buttons-container {
       display: flex;
       flex-wrap: wrap;
@@ -535,9 +581,15 @@
           <div class="receipt-barcode">𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃</div>
         </div>
 
+        <!-- BOX CALENDARIO CON FRECCINE E ANNO SEPARATO -->
         <div class="box-dark">
-          <div class="box-header"><span id="cal-month-title">calendar</span><div style="width:12px; height:12px; border:2px solid #F3EEDA; border-radius:2px; background: #F3EEDA;"></div></div>
+          <div class="box-header">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)" title="Mese precedente">◄</button>
+            <span id="cal-month-title">calendar</span>
+            <button class="cal-nav-btn" onclick="changeMonth(1)" title="Mese successivo">►</button>
+          </div>
           <div class="box-body">
+            <div id="cal-year-display" class="cal-year-display">----</div>
             <div class="calendar-graphic-dark">
               <div class="calendar-graphic-top-dark"></div>
               <div class="calendar-graphic-body-dark" id="cal-day-number">--</div>
@@ -590,7 +642,6 @@
             <a href="https://cosmic-seea.neocities.org/AboutMe" class="btn-cream-large">
               𝓐𝓫𝓸𝓾𝓽 𝓜𝓮 -&gt;
             </a>
-            <!-- Spazio vuoto futuro 1 (Stile Nero) -->
             <a href="#" class="btn-dark-large"></a>
           </div>
         </div>
@@ -598,9 +649,7 @@
         <!-- SECONDA RIGA DELLA DIVISIONE -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; align-items: stretch;">
           <div style="display: flex; flex-direction: column; gap: 16px; justify-content: space-between;">
-            <!-- Spazio vuoto futuro 2 (Stile Bianco) -->
             <a href="#" class="btn-white-large"></a>
-            <!-- Spazio vuoto futuro 3 (Stile Crema) -->
             <a href="#" class="btn-cream-large"></a>
           </div>
           <div style="display: flex; align-items: center; justify-content: center;">
@@ -610,7 +659,7 @@
           </div>
         </div>
 
-        <!-- BARRA SOCIAL DEFINITIVA (Stile About Me con Reddit e Tumblr inclusi) -->
+        <!-- BARRA SOCIAL DEFINITIVA -->
         <div class="social-buttons-container">
           <!-- Email -->
           <a href="mailto:seea-star@proton.me" class="social-btn" title="Email">
@@ -788,22 +837,36 @@
       player.previousVideo();
     }
 
-    /* --- GENERATORE CALENDARIO DINAMICO --- */
+    /* --- LOGICA CALENDARIO CON NAVIGAZIONE MESI, ANNO SEPARATO E IMMAGINI COMPLEANNO --- */
+    let displayDate = new Date(); // Data usata per navigare il calendario
+    const actualToday = new Date(); // Data reale odierna per evidenziare il giorno corrente
+
+    function changeMonth(offset) {
+      displayDate.setMonth(displayDate.getMonth() + offset);
+      generateCalendar();
+    }
+
     function generateCalendar() {
-      const today = new Date();
-      const currentDay = today.getDate();
-      const currentMonth = today.getMonth();
-      const currentYear = today.getFullYear();
+      const viewMonth = displayDate.getMonth();
+      const viewYear = displayDate.getFullYear();
+      
+      const isCurrentMonth = (actualToday.getFullYear() === viewYear && actualToday.getMonth() === viewMonth);
+      const todayDateNumber = isCurrentMonth ? actualToday.getDate() : null;
+
       const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
       const monthTitleElem = document.getElementById('cal-month-title');
+      const yearDisplayElem = document.getElementById('cal-year-display');
       const dayNumElem = document.getElementById('cal-day-number');
       
-      if (monthTitleElem) monthTitleElem.innerText = monthNames[currentMonth].toLowerCase();
-      if (dayNumElem) dayNumElem.innerText = currentDay;
+      if (monthTitleElem) monthTitleElem.innerText = monthNames[viewMonth].toLowerCase();
+      if (yearDisplayElem) yearDisplayElem.innerText = viewYear;
+      if (dayNumElem) {
+        dayNumElem.innerText = isCurrentMonth ? actualToday.getDate() : '--';
+      }
 
-      const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
-      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      const firstDayOfMonth = new Date(viewYear, viewMonth, 1).getDay();
+      const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
       const tbody = document.getElementById('calendar-body');
       
       if (!tbody) return;
@@ -821,10 +884,25 @@
           } else if (date > daysInMonth) {
             cell.innerText = '';
           } else {
-            cell.innerText = date;
-            if (date === currentDay) {
+            const isToday = (date === todayDateNumber);
+            const isBirthday = (viewMonth === 11 && date === 21); // 11 = Dicembre (0-indexed)
+
+            if (isToday) {
               cell.classList.add('today-dark');
             }
+
+            if (isBirthday) {
+              if (isToday) {
+                // Se è il 21 Dicembre ED è il giorno di oggi (evidenziato): torta nera cake.png
+                cell.innerHTML = `<img src="cake.png" alt="Birthday Cake" class="cake-icon-highlight" title="Happy Birthday!">`;
+              } else {
+                // Se è il 21 Dicembre in generale (non evidenziato): torta bianca cakew.png
+                cell.innerHTML = `<img src="cakew.png" alt="Birthday Cake" class="cake-icon" title="Birthday">`;
+              }
+            } else {
+              cell.innerText = date;
+            }
+
             date++;
             hasDatesInRow = true;
           }
